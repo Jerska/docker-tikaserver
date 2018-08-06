@@ -17,5 +17,4 @@ RUN	apt-get update \
 	&& curl -sSL "$NEAREST_TIKA_SERVER_URL" -o /tika-server-${TIKA_VERSION}.jar \
 	&& apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-EXPOSE 80
-CMD java -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
+CMD java -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0 --port $PORT
